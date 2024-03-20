@@ -1,0 +1,37 @@
+opam-version: "2.0"
+synopsis: "Collect activity as markdown"
+maintainer: ["Guillaume Petiot <guillaume@tarides.com>"]
+authors: ["talex5@gmail.com"]
+homepage: "https://github.com/tarides/get-activity"
+bug-reports: "https://github.com/tarides/get-activity/issues"
+depends: [
+  "dune" {>= "2.8"}
+  "cmdliner" {>= "1.1.1"}
+  "dune-build-info"
+  "get-activity-lib" {= version}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/tarides/get-activity.git"
+url {
+  src:
+    "https://github.com/tarides/get-activity/releases/download/1.0.0/get-activity-1.0.0.tbz"
+  checksum: [
+    "sha256=b072e48bcef89c131108d3bc062c34575497ea8217a4c9f43ec6e89afec8217c"
+    "sha512=d29bd4435893f791af9dd172a05b6770225926c57a6ab1f0d72108e26b1774bf07c70aada420df7b2c8f3faf70b340da766b606878d5faf87f7d7760925d787f"
+  ]
+}
+x-commit-hash: "c79ce7802fd17125e06e81acf36c8b6789641c87"
