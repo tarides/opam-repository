@@ -1,0 +1,47 @@
+opam-version: "2.0"
+synopsis: "Report parsing prototypes"
+description: "A library of tools for report parsing"
+maintainer: ["Guillaume Petiot <guillaume@tarides.com>"]
+authors: ["Magnus Skjegstad"]
+license: "ISC"
+homepage: "https://github.com/tarides/okra"
+bug-reports: "https://github.com/tarides/okra/issues"
+depends: [
+  "dune" {>= "3.2"}
+  "ocaml" {>= "4.10"}
+  "alcotest" {>= "1.7.0" & with-test}
+  "logs" {>= "0.7.0"}
+  "fmt" {>= "0.9.0"}
+  "xdg"
+  "get-activity-lib" {>= "2.0.1" & < "3.0.0"}
+  "gitlab" {>= "0.1.7"}
+  "calendar" {>= "3.0.0"}
+  "csv" {>= "2.4"}
+  "re"
+  "omd" {>= "2.0.0~alpha3"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/tarides/okra.git"
+url {
+  src:
+    "https://github.com/tarides/okra/releases/download/2.0.0/okra-2.0.0.tbz"
+  checksum: [
+    "sha256=3ee7efc89f78e8f7b1466df301e9ce45c06efc445386212c5a807d6c9ab4a5d5"
+    "sha512=667c23688164fd8ec4a9880dc35e67645fc50fa1196ee44236191fb28d86478872c0422c43b841b45c083688db176bee3ab57852f372818b92a989d084a2e584"
+  ]
+}
+x-commit-hash: "b5f56287302247acdc5d834d227fdf68d6ce92d5"
