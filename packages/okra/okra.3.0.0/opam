@@ -1,0 +1,48 @@
+opam-version: "2.0"
+synopsis: "Report parsing executable"
+description: "An executable to be used for report parsing"
+maintainer: ["Guillaume Petiot <guillaume@tarides.com>"]
+authors: ["Magnus Skjegstad"]
+license: "ISC"
+homepage: "https://github.com/tarides/okra"
+bug-reports: "https://github.com/tarides/okra/issues"
+depends: [
+  "dune" {>= "3.2"}
+  "alcotest" {>= "1.7.0" & with-test}
+  "mdx" {>= "2.2.1" & with-test}
+  "logs" {>= "0.7.0"}
+  "xdg"
+  "fmt" {>= "0.9.0"}
+  "okra-lib" {= version}
+  "cmdliner" {>= "1.1.1"}
+  "ppx_deriving_yaml" {>= "0.2.0"}
+  "bos"
+  "dune-build-info"
+  "yaml" {>= "3.0"}
+  "cohttp-lwt-unix" {>= "5.0.0"}
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/tarides/okra.git"
+url {
+  src:
+    "https://github.com/tarides/okra/releases/download/3.0.0/okra-3.0.0.tbz"
+  checksum: [
+    "sha256=13e905363cb5009dd50f769ee310430a45fdc30bd64274e524ee433064d84d3d"
+    "sha512=cbbb19a41caaac65e7dedcbdf62307ffb2a1d0ac4bd3f482f2711cfb0c9b8a4855f9662f1b79f5d995b95e87678cf980ca1ff6c67f295cb83067980a2e50b6bc"
+  ]
+}
+x-commit-hash: "f43d6784fbf530e91109d731ced56a26285ae072"
