@@ -38,7 +38,7 @@ build: [
 dev-repo: "git+https://github.com/tarides/caretaker.git"
 url {
   src:
-    "https://github.com/tarides/caretaker/releases/download/0.1.0/caretaker-0.1.0.tbz"
+    "https://github.com/tarides/opam-repository/raw/master/packages/caretaker/caretaker.0.1.0/caretaker-0.1.0.tbz"
   checksum: [
     "sha256=be12afe450fa04561b994cf68395a814d5ad455bb2a8199b3a9d157457155fb4"
     "sha512=da0d15769c292d333cc9dfb975e97499f17cbba405b009be24668239837444062745831f2502c029f504e4b01b27baa58f199023a5156f29d7b54a9fe537a93b"
