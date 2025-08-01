@@ -1,0 +1,46 @@
+opam-version: "2.0"
+synopsis: "Taking care of our technical projects"
+description:
+  "A library to interface with the different sources we use for project management."
+maintainer: ["Tarides"]
+authors: ["Thomas Gazagnaire"]
+license: "ISC"
+homepage: "https://github.com/tarides/caretaker"
+bug-reports: "https://github.com/tarides/caretaker/issues"
+depends: [
+  "dune" {>= "3.7"}
+  "alcotest" {with-test}
+  "calendar"
+  "cohttp-lwt-unix"
+  "conduit-lwt-unix"
+  "csv"
+  "lwt_ssl"
+  "okra-lib" {>= "3.0.0" & < "4.0.0"}
+  "omd" {>= "2.0.0~alpha4"}
+  "yojson"
+  "odoc" {with-doc}
+]
+build: [
+  ["dune" "subst"] {dev}
+  [
+    "dune"
+    "build"
+    "-p"
+    name
+    "-j"
+    jobs
+    "@install"
+    "@runtest" {with-test}
+    "@doc" {with-doc}
+  ]
+]
+dev-repo: "git+https://github.com/tarides/caretaker.git"
+url {
+  src:
+    "https://github.com/tarides/opam-repository/raw/master/packages/caretaker/caretaker.1.6.0/caretaker-1.6.0.tbz"
+  checksum: [
+    "sha256=9f413f072665b9be16883d028e5ddb6c34df0d4d9d22b74d6b4cfb9c96d9a390"
+    "sha512=fa3987a5a27ebd17d6101c0a52cc1b152aadc311da7b34d23877eeeb8757112a6acd00e93f435867393da1b14445914bdb74e269666e5f3b710ecb3058503c72"
+  ]
+}
+x-commit-hash: "09c026939fd5a8a1e96b33d7db42e3e7d9607e2e"
